@@ -77,8 +77,10 @@ AltSoftSerial gsmSerial;
 		 if(gsmSerial.available()) //check if the device is sending a message
 		 {
 			 String tempData = gsmSerial.readString(); // reads the response
-			 if(DEBUG)
-				 Serial.println(tempData);
+			 #if DEBUG
+			 Serial.println(tempData);
+			 #endif
+
 			 char *mydataIn = strdup(tempData.c_str()); // convertss to char data from
 			 
 		 /*
@@ -122,8 +124,9 @@ AltSoftSerial gsmSerial;
 	 if(gsmSerial.available())
 	 {
 		 String output = gsmSerial.readString();
-		 if(DEBUG)
-			 Serial.println(output);
+		 #if DEBUG
+		 Serial.println(output);
+		 #endif
 		 return output;
 	 }
  }
