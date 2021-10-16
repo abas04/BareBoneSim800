@@ -310,7 +310,7 @@ void BareBoneSim800::_disableBearerProfile(){
  }
  
  
-bool BareBoneSim800::sendSMS(const char* number, char* text){
+bool BareBoneSim800::sendSMS(const char* number, const char* text){
 	/* This sends an sms out 
 	*	First send out AT+CMGF=1 - activate text mode
 	* The AT+CMGS=\number\

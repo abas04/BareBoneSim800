@@ -126,7 +126,7 @@
 	 bool enterSleepMode();
 	 bool disableSleep();
 	 
-	 bool sendSMS(const char* number, char* text);
+	 bool sendSMS(const char* number, const char* text);
 	 String readSMS(uint8_t index); // reads an sms at a particular index
 	 String readSIMNumber(); //reads the sim registered number
 	 bool checkNewSMS(); //checks for new sms
