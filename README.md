@@ -58,8 +58,9 @@ flushSerial(timeout)|None|Flush out any unwanted data coming from the GSM Module
 setFullMode()|true or false|Activates the device to full functionality.
 enterSleepMode()|true or false|Puts the GSM module into a power saving and sleep mode.
 disableSleep()|true or false|Disable sleep for the device and wakes it up, gives error if device not in sleep before.
-sendSms(number,text)|true or false|Sends  sms.
-readSms(index)|String|index is the position of the sms in the prefered memory storage
+sendSMS(number,text)|true or false|Sends  sms.
+readSMS(index)|String|index is the position of the sms in the preferred memory storage
+readSMS(index, message, number, date)|None|index is the position of the sms in the preferred memory storage; message, number, date are string outputs passed by reference
 dellAllSMS()|true or false|Deletes all message in the SIM800 module.
 getTime()|String|Gets time of the network in GMT+0
 getLocation()|String|Gets approximate location of device

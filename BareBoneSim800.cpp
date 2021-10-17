@@ -363,6 +363,30 @@ String BareBoneSim800::readSMS(uint8_t index){
 		return "";
 }
 
+void BareBoneSim800::readSMS(uint8_t index, String &message, String &number, String &date)
+{
+  String sms = readSMS(index);
+  if (sms == "")
+  {
+    message = "";
+    number = "";
+    date = "";
+    return;
+  }
+
+  int indHeader = sms.indexOf("\r\n");
+  int indMsg = sms.indexOf("\r\n", indHeader + 2);
+  message = sms.substring(indMsg + 2, sms.indexOf("\r\n", indMsg + 2));
+
+  String header = sms.substring(indHeader + 2, indMsg);
+
+  int indPhone = header.indexOf("\",\"");
+  int indEndPhone = header.indexOf("\",\"", indPhone + 3);
+  number = header.substring(indPhone + 3, indEndPhone);
+
+  date = header.substring(header.indexOf("\",\"", indEndPhone + 3) + 3, header.lastIndexOf("\""));
+}
+
 String BareBoneSim800::readSIMNumber(){
 	// This function reads the simcard registered number
 	String buffer = "";

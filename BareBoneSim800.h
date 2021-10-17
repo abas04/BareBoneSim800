@@ -127,7 +127,12 @@
 	 bool disableSleep();
 	 
 	 bool sendSMS(const char* number, const char* text);
-	 String readSMS(uint8_t index); // reads an sms at a particular index
+
+	 // reads an sms at a particular index
+	 String readSMS(uint8_t index);
+	 // reads an sms at a particular index and save message, number and date in variables bassed by reference
+	 void readSMS(uint8_t index, String &message, String &number, String &date);
+
 	 String readSIMNumber(); //reads the sim registered number
 	 bool checkNewSMS(); //checks for new sms
 	 bool dellAllSMS(); // deletes all sms 
