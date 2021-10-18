@@ -69,6 +69,7 @@ checkNewSMS()|true or false|Checks if a SMS has arrived. Needs to be call for sm
 previousMessageIndex()|Int|Variable for holding the last stored sms index
 currentMessageIndex()|Int|Variable for holding the latest sms index
 getBattPercent()|Byte|Battery percentage 
+getSignalQuality()|Byte|Signal quality
 gorsConnect()|true or false|Connects to APN network
 gprsDisconnect()|true or false|Disconnects from Gprs network
 sendHTTPData(data)|String|Make an HTTP Request

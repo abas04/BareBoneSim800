@@ -481,6 +481,16 @@ byte BareBoneSim800::getBattPercent(){
 	return buffer2.substring(0, buffer2.indexOf(",")).toInt(); // converts the result to interger
 }
 
+byte BareBoneSim800::getSignalQuality()
+{
+	//This function is use for getting signal quality
+	//It will return a value between 0 - 31, 99 or 100
+	gsmSerial.print(F("AT+CSQ\r\n"));
+	String buffer = _readData();
+	uint8_t ind = buffer.indexOf(",");
+	return (-1 == ind) ? 100 : buffer.substring(buffer.indexOf("+CSQ: ") + 6, ind).toInt(); // return 100 if an error occurs
+}
+
 /*/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 This Section Focuses on the GPRS connectivitiy
 */
